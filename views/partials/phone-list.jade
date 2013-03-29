@@ -1,0 +1,15 @@
+.container-fluid
+    .row-fluid
+        .span2 Search:
+            input(ng-model="query")
+            | Sort by:
+            select(ng-model="orderProp")
+                option(value="name") Alphabetical
+                option(value="age") Newest
+        .span10
+            ul.phones
+                li.thumbnail(ng-repeat="phone in phones | filter:query | orderBy:orderProp")
+                    a.thumb(href="#/phones/{{phone.id}}")
+                        img(ng-src="{{phone.imageUrl}}")
+                    a(href="#/phones/{{phone.id}}") {{phone.name}}
+                    p {{phone.snippet}}

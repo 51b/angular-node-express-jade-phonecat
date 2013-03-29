@@ -1,0 +1,80 @@
+img.phone(ng-src="{{mainImageUrl}}")
+h1 {{phone.name}}
+p {{phone.description}}
+ul.phone-thumbs
+    li(ng-repeat="img in phone.images")
+        img(ng-src="{{img}}", ng-click="setImage(img)")
+ul.specs
+    li
+        span Availability and Networks
+        dl
+            dt Availability
+            dd(ng-repeat="availability in phone.availability") {{availability}}
+    li
+        span Battery
+        dl
+            dt Type
+            dd {{phone.battery.type}}
+            dt Talk Time
+            dd {{phone.battery.talkTime}}
+            dt Standby time (max)
+            dd {{phone.battery.standbyTime}}
+    li
+        span Storage and Memory
+        dl
+            dt RAM
+            dd {{phone.storage.ram}}
+            dt Internal Storage
+            dd {{phone.storage.flash}}
+    li
+        span Connectivity
+        dl
+            dt Network Support
+            dd {{phone.connectivity.cell}}
+            dt WiFi
+            dd {{phone.connectivity.wifi}}
+            dt Bluetooth
+            dd {{phone.connectivity.bluetooth}}
+            dt Infrared
+            dd {{phone.connectivity.infrared | checkmark}}
+            dt GPS
+            dd {{phone.connectivity.gps | checkmark}}
+    li
+        span Android
+        dl
+            dt OS Version
+            dd {{phone.android.os}}
+            dt UI
+            dd {{phone.android.ui}}
+    li
+        span Display
+        dl
+            dt Screen size
+            dd {{phone.display.screenSize}}
+            dt Screen resolution
+            dd {{phone.display.screenResolution}}
+            dt Touch screen
+            dd {{phone.display.touchScreen | checkmark}}
+    li
+        span Hardware
+        dl
+            dt CPU
+            dd {{phone.hardware.cpu}}
+            dt USB
+            dd {{phone.hardware.usb}}
+            dt Audio / headphone jack
+            dd {{phone.hardware.audioJack}}
+            dt FM Radio
+            dd {{phone.hardware.fmRadio | checkmark}}
+            dt Accelerometer
+            dd {{phone.hardware.accelerometer | checkmark}}
+    li
+        span Camera
+        dl
+            dt Primary
+            dd {{phone.camera.primary}}
+            dt Features
+            dd {{phone.camera.features.join(', ')}}
+    li
+        span Additional Features
+        dd {{phone.additionalFeatures}}
